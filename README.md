@@ -1,116 +1,56 @@
-# ContactHands
+<img src=".github/Detectron2-Logo-Horz.svg" width="300" >
 
-This repository contains the code and data for the following paper:
+Detectron2 is Facebook AI Research's next generation software system
+that implements state-of-the-art object detection algorithms.
+It is a ground-up rewrite of the previous version,
+[Detectron](https://github.com/facebookresearch/Detectron/),
+and it originates from [maskrcnn-benchmark](https://github.com/facebookresearch/maskrcnn-benchmark/).
 
-[Detecting Hands and Recognizing Physical Contact in the Wild](https://www3.cs.stonybrook.edu/~sunarasimhas/webpage/contacthands.pdf) (NeurIPS 2020).
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/1381301/66535560-d3422200-eace-11e9-9123-5535d469db19.png"/>
+</div>
 
-## Contents
+### What's New
+* It is powered by the [PyTorch](https://pytorch.org) deep learning framework.
+* Includes more features such as panoptic segmentation, densepose, Cascade R-CNN, rotated bounding boxes, etc.
+* Can be used as a library to support [different projects](projects/) on top of it.
+  We'll open source more research projects in this way.
+* It [trains much faster](https://detectron2.readthedocs.io/notes/benchmarks.html).
 
-This repository contains the following:
+See our [blog post](https://ai.facebook.com/blog/-detectron2-a-pytorch-based-modular-object-detection-library-/)
+to see more demos and learn about detectron2.
 
-* A PyTorch implementation of the proposed architecture for joint hand detection and contact recognition.
-* Code to train and evaluate the proposed method.
-* The proposed ContactHands dataset.
-* Pre-trained models.
+## Installation
 
-### Installation
+See [INSTALL.md](INSTALL.md).
 
-Follow the instllation instructions in [INSTALL.md](INSTALL.md). 
+## Quick Start
 
-### Folder structure
+See [GETTING_STARTED.md](GETTING_STARTED.md),
+or the [Colab Notebook](https://colab.research.google.com/drive/16jcaJoc6bCFAQ96jDe2HwtXj7BMD_-m5).
 
-The code is organized in the following structure:
+Learn more at our [documentation](https://detectron2.readthedocs.org).
+And see [projects/](projects/) for some projects that are built on top of detectron2.
 
-```
-ContactHands/  
-  configs/
-    ContactHands.yaml
-    Base-RCNN-FPN.yaml
-    mask_rcnn_R_101_FPN_3x.yaml
-    second_stream.yaml
-    
-  contact_hands_two_stream/
-    config/
-      config.py
-    data/
-      build.py
-      dataset_mapper.py
-      detection_utils.py
-    engine/
-      custom_arg_parser.py
-      custom_predictor.py
-    evaluation/
-      evaluator_ourdata.py
-    models/
-      model_contacthands.pth
-      model_best.pth
-    modeling/
-      metaarch/
-        first_stream_rcnn.py
-        second_stream_rcnn.py
-      roi_heads/
-        contact_head.py
-        cross_feature_affinity_pooling.py
-        first_stream_roi_head.py
-        second_stream_roi_head.py
-        spatial_attention.py
-    utils/
-      extend_util_boxes.py
-      visualzier.py
-  
-  datasets/
-    load_data.py
-  
-  output_visualizations/
-  
-  train_net.py
-  detect.py
-```
+## Model Zoo and Baselines
 
-### Data format
+We provide a large set of baseline results and trained models available for download in the [Detectron2 Model Zoo](MODEL_ZOO.md).
 
-Please see the ContactHands dataset (will be out soon!) for the required data and annotation format.
 
-### Models
+## License
 
-Download [models](https://drive.google.com/drive/folders/1YpH6AXdurOb0NDgzcaHmWbLDlsZeXlwr) and place them in ```./models/```.
+Detectron2 is released under the [Apache 2.0 license](LICENSE).
 
-### Training
+## Citing Detectron
 
-Use the following command for training:
+If you use Detectron2 in your research or wish to refer to the baseline results published in the [Model Zoo](MODEL_ZOO.md), please use the following BibTeX entry.
 
-`python train_net.py --first-config-file configs/ContactHands.yaml`
-
-### Evaluation
-
-Use the following command for evaluation:
-
-`python train_net.py --first-config-file configs/ContactHands.yaml --eval-only MODEL.WEIGHTS <path to model weights> MODEL.ROI_HEADS.SCORE_THRESH_TEST 0.7`
-
-The parameter ```MODEL.ROI_HEADS.SCORE_THRESH_TEST``` is the threshold for hand detections and can take values in the range [0.0, 1.0]. While a lower threshold can increase the AP, it reduces the precision and gives poor hand detections.
-
-### Running and visualizing results on custom images 
-
-Use the following command to run joint hand detection and contact recognition on custom images:
-
-`python detect.py --image_dir <path to a directory containing images> --ROI_SCORE_THRESH 0.7 --sc 0.5 --pc 0.4 --oc 0.6`
-
-The parameters `sc`, `pc`, `oc` denote thresholds for Self-Contact, Other-Person-Contact, and Object-Contact, respectively. 
-
-The thresholds are in the range [0.0, 0.1]. Lower thresholds increases the recall and higher thresholds increases precision. Choose them according to your need. 
-
-If the predicted contact state score for all three of them are less than the corresponding thresholds, the contact state No-Contact will be choosen. 
-
-The output images with hand detections and contact state visualizations will be stored in `./results/`. 
-
-## References
-If you find our code or dataset useful, please cite our work using the following:
-
-```
-@inproceedings{contacthands_2020,
-  title={Detecting Hands and Recognizing Physical Contact in the Wild},
-  author={Supreeth Narasimhaswamy and Trung Nguyen and Minh Hoai},
-  booktitle={Advances in Neural Information Processing Systems},
-  year={2020},
+```BibTeX
+@misc{wu2019detectron2,
+  author =       {Yuxin Wu and Alexander Kirillov and Francisco Massa and
+                  Wan-Yen Lo and Ross Girshick},
+  title =        {Detectron2},
+  howpublished = {\url{https://github.com/facebookresearch/detectron2}},
+  year =         {2019}
 }
 ```
