@@ -1,6 +1,5 @@
 # Graduation_Project
 > 가천대학교 소프트웨어학과 졸업작품 (2022)
-
 > 지도교수 : 한명묵 교수님
 ## Project Title 
 > Decam
