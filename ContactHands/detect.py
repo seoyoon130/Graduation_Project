@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*- 
 import random
 import cv2
 import os
@@ -276,6 +277,7 @@ if __name__ == '__main__':
 
         host=socket.gethostbyname(socket.gethostname())
         print(host)
+
           # 호스트 ip를 적어주세요
         port = 8080  # 포트번호를 임의로 설정해주세요
 
