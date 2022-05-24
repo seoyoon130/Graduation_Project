@@ -15,9 +15,10 @@
 | 201735837  | Park-Chanbin(박찬빈)     |parks4754@gmail.com
 | 201833299  | Heo-Seoyoon(허서윤)   | seoyoon130@naver.com       |
 
-## Open Source
-Detectron2
-ContactHands
-
-## Development environment 
 ## Technology stack
+Flask, Python, Pytorch, OpenCV
+
+## Open Source
+Detectron2 (https://github.com/facebookresearch/detectron2)
+
+## App UI
