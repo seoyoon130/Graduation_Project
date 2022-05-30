@@ -21,6 +21,11 @@ Flask, Python, Pytorch, OpenCV
 ## Open Source
 Detectron2 (https://github.com/facebookresearch/detectron2)
 
+## Presentation Link(Youtube)
+
+## Decam Wiki
+https://github.com/seoyoon130/Graduation_Project/wiki/Decam-Wiki
+
 ## App UI
 ![그림1](https://user-images.githubusercontent.com/76056286/169991224-58992b10-8711-47f7-8314-4a085219bd0d.png)
 ![그림2](https://user-images.githubusercontent.com/76056286/169991231-b4212826-2000-4e5e-8192-77adbb3882fa.png)
