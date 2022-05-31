@@ -16,7 +16,7 @@
 | 201833299  | Heo-Seoyoon(허서윤)   | seoyoon130@naver.com       |
 
 ## Technology stack
-Flask, Python, Pytorch, OpenCV
+Flask, Python, Pytorch, OpenCV, YoloV4
 
 ## Open Source
 Detectron2 (https://github.com/facebookresearch/detectron2)
