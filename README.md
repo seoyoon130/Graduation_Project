@@ -22,6 +22,7 @@ Flask, Python, Pytorch, OpenCV, YoloV4
 Detectron2 (https://github.com/facebookresearch/detectron2)
 
 ## Presentation Link(Youtube)
+https://www.youtube.com/watch?v=WcZOhWNtPNk
 
 ## Decam Wiki
 https://github.com/seoyoon130/Graduation_Project/wiki/Decam-Wiki
